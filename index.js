@@ -2,14 +2,14 @@
 var today = dayjs();
 $("#currentDay").text(today.format('dddd, MMMM D'))
 
-
-
 //Array for standard business hours
 var businessHour = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"]
 
 var hour = 0;
 
-// //Add timeblocks inside div with class container
+//Add timeblocks inside div with class container
+
+
 function timeblocks(){
 for (let i=0; i<businessHour.length; i++){
 var block = $('<div class= "row">')
@@ -26,4 +26,17 @@ $(block).append(saveSection)
 hour++
 } 
 }
+
+//color code each timeblock based on past, present or future viewing
+function colorBlock() {  
+var currentTime = dayjs().format('hA')    
+    if (hour = currentTime) {
+        $('textarea').addClass("present")
+    } else if (hour < currentTime){
+        $('textarea').addClass("past")
+    } else if (hour > currentTime){
+        $('textarea').addClass("future")}
+} 
 timeblocks()
+colorBlock()
+
