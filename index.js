@@ -11,11 +11,11 @@ var hour = 0;
 //Add timeblocks inside div with class container
 function timeblocks(){
 for (let i=9; i<18; i++){
-var block = $('<div class= "row">')
+var block = $('<div class= "row"'+ 'id="'+i+'">')
 $(".container").append(block)
 
 var timeSection = $('<div class="col-2 time-block hour">').text(businessHour[hour])
-var eventSection = $('<textarea class="col-8 description" type="text"'+ 'id="'+i+'">')
+var eventSection = $('<textarea class="col-8 description" type="text">')
 var saveButton = $('<button class="col-2 saveBtn">').text("save")
 
 $(block).append(timeSection)
@@ -30,7 +30,7 @@ hour++
 function colorBlock() {
 var currentTime = dayjs().hour()
 
-$('textarea').each(function(){
+$('.row').each(function(){
     var hourId = parseInt($(this).attr("id"))
    for(var i=0; i<hours.length; i++) {
     if (hourId === currentTime  ) {
@@ -53,4 +53,14 @@ timeblocks()
 colorBlock()
 
 
+//when save button is clicked event is saved in the textarea
+$(".saveBtn").on("click", function(){
+var event = $(this).siblings(".description").val()
+var time = $(this).parent().attr("id")
+
+//saves time and event in local storage
+localStorage.setItem(time, event)
+})
+
+//get data from local storage
 
