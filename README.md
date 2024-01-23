@@ -9,7 +9,7 @@ N/A
 # Usage
 When the webpage is loaded the title and the current days date will be displayed at the top of the page. Below that, there are 9 rows each containing a business hour, a textarea to input data and a save button. When data is entered into the textarea and the save button is clicked, the data will be stored in the local storage. When the page is refreshed data from the local storage will be retrieved and displayed on the webpage.  
 
-To access the webpage click this link: https://embow24.github.io/Work-day-planner/ 
+To access the webpage click this link: 
 
 Below is a screenshot of the work day scheduler:
 ![screenshot](images/screenshot.png)
